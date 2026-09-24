@@ -1,4 +1,7 @@
 class Car:
+    def __init__(self, colour):
+        self.colour = colour
+
     @staticmethod
     def start():
         print("Car has starting")
@@ -12,12 +15,13 @@ class Toyota(Car):
         self.make = make
 
 class Fortuner(Toyota):
-    def __init__(self, type, model):
+    def __init__(self, type, model,):
         self.type = type
         self.model = model
-        self.make = "Toyota"
+        super().start()
 
 s1 = Fortuner("SUV", "Fortuner Sigma 4x4")
-print(s1.make, s1.type, s1.model)
-s1.start()
+s2 = Toyota("Honda") 
+print(s2.make)
+print(s1.type, s1.model)
 s1.stop()
