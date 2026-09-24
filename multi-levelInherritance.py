@@ -18,7 +18,7 @@ class Fortuner(Toyota):
     def __init__(self, type, model,):
         self.type = type
         self.model = model
-        super().start()
+        super().start() #super calls the function from the parent class
 
 s1 = Fortuner("SUV", "Fortuner Sigma 4x4")
 s2 = Toyota("Honda") 
