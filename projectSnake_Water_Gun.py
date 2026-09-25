@@ -1,30 +1,32 @@
-'''
-1 for snake
--1 for water
-0 for gun
-'''
 import random
 
-computer = random.choice([-1, 0, 1])
-youstr = int(input("Enter your Choice: 1 for snake, -1 for water, 0 for gun: "))
-youDict = {"1 ": "snake", "-1" : "water", "0" : "gun"}
-younum = youDict[youstr]
+choices = {1 : "Snake", 2 : "Water", 3 : "Gun"}
+beats = {
+    "Snake": "Water",
+    "Water": "Gun",
+    "Gun": "Snake"
+}
 
-if computer == youstr:
-    print("It's a Draw!")
+print ("Welcome to Snake, Water and Gun Game!")
 
-elif computer == -1 and youstr == 0:
-    print("You Won!")
-elif computer == -1 and youstr == 1:
-    print ("You Lose!")
-elif computer == 0 and youstr == -1:
-    print("You Lose!")
-elif computer == 0 and youstr == 1:
-    print("You Won!")
-elif computer == 1 and youstr == -1:
-    print("You Won!")
-elif computer == 1 and youstr == 0:
-    print("You Lose!")
+while True:
+    print("Choose your option: \n1. Snake \n2. Water \n3. Gun \n4. Exit" )
+    user_input = int((input("Enter your choice (1/2/3/4): ")))
 
-else:
-    print("Invalid Input!")
+    if user_input == 4:
+        print("Exiting the game. Goodbye")
+        break
+        
+    if user_input not in choices:
+        print("Invalid choice. Please try again.")
+        continue
+
+    user_choice = choices[user_input]
+    computer_choice = random.choice(list(choices.values()))
+    # print(f"Computer choose: {computer_choice}")
+
+    if user_choice == computer_choice:
+        print(f"Both chose {user_choice}. It's a tie!")
+
+    elif beats[user_choice] == computer_choice:
+        print(f"You chose {user_choice} and computer chose {computer_choice}. 'You win!'")

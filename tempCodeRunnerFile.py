@@ -1,1 +1,1 @@
-   
+print(f"Computer choose: {computer_choice}")
